@@ -1,17 +1,16 @@
-.spacer {
-  /* This fills the remaining space, by using flexbox.
-     Every toolbar row uses a flexbox row layout. */
-  flex: 1 1 auto;
-}
-
-.center {
-  text-align: center;
-}
-
 mat-sidenav-container {
   mat-toolbar {
+
+    .spacer {
+      /* This fills the remaining space, by using flexbox.
+         Every toolbar row uses a flexbox row layout. */
+      flex: 1 1 auto;
+    }
+
     .nav-button {
       margin: 0 10px 0 0;
     }
+
+    
   }
 }
