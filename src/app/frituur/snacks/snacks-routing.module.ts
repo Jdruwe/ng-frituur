@@ -1,17 +1,18 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
+import * as fromContainers from './containers';
+
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'snacks'
-  }
+    component: fromContainers.SnacksComponent
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
+export class SnacksRoutingModule {
 }
