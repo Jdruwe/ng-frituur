@@ -1,4 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@import 'styles-variables';
+
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+@import 'styles-reset';
+
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+@import 'themes/default-theme.scss';
+
+@import "app/containers/app/app.component.scss-theme";
+
+@mixin custom-components-theme($theme) {
+  @include frituur-app-component-theme($theme);
+}
+
+@include angular-material-theme($frituur-theme);
+@include custom-components-theme($frituur-theme);

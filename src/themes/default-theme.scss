@@ -1,0 +1,5 @@
+$frituur-primary: mat-palette($mat-indigo, 800, 300, 900);
+$frituur-accent: mat-palette($mat-light-blue);
+$frituur-warn: mat-palette($mat-pink, 600);
+
+$frituur-theme: mat-light-theme($frituur-primary, $frituur-accent, $frituur-warn);

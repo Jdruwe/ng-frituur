@@ -1,9 +1,40 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+<!--<div style="text-align:center">-->
+<!--  <h1>-->
+<!--    Welcome to {{ title }}!-->
+<!--  </h1>-->
+<!--</div>-->
 
-<button mat-button color="primary">Primary</button>
+<!--<button mat-button color="primary">Primary</button>-->
 
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="push">Sidenav content</mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-toolbar color="primary">
+
+      <button class="d-md-none" mat-icon-button (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span>ng-frituur</span>
+      <span class="spacer"></span>
+
+      <span class="d-none d-md-inline">
+        <button mat-button class="nav-button"
+                routerLinkActive="active"
+                *ngFor="let item of navigationItems" [routerLink]="[item.link]">
+          {{item.label}}
+        </button>
+      </span>
+
+      <a target="_blank" href="https://github.com/Jdruwe/ng-frituur" mat-icon-button>
+        <mat-icon>code</mat-icon>
+      </a>
+
+    </mat-toolbar>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
