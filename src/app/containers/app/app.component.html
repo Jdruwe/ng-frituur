@@ -8,9 +8,20 @@
 
 <!--<router-outlet></router-outlet>-->
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="push">Sidenav content</mat-sidenav>
-  <mat-sidenav-content>
+<mat-sidenav-container class="all-wrap">
+  <mat-sidenav #sidenav mode="push">
+    <mat-icon>fastfood</mat-icon>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of navigationItems" (click)="sidenav.close()" [routerLink]="[item.link]"
+         routerLinkActive="active">
+        {{item.label}}
+      </a>
+      <a mat-list-item href="https://github.com/tomastrajan/angular-ngrx-material-starter" target="_blank">
+        Github
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="page-wrap">
 
     <mat-toolbar color="primary">
 
@@ -18,7 +29,14 @@
         <mat-icon>menu</mat-icon>
       </button>
 
-      <span>ng-frituur</span>
+      <span class="d-xs-inline d-md-none">
+        ng-frituur
+      </span>
+
+      <span class="branding d-none d-md-inline">
+        <mat-icon>fastfood</mat-icon>ng-frituur
+      </span>
+
       <span class="spacer"></span>
 
       <span class="d-none d-md-inline">
@@ -34,6 +52,15 @@
       </a>
 
     </mat-toolbar>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+
+    <footer>
+      <h2>Sticky Footer !!</h2>
+      <p>... with variable height</p>
+    </footer>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

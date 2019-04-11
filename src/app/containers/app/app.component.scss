@@ -1,3 +1,16 @@
+@import '~@angular/material/theming';
+
+mat-sidenav {
+  width: 250px;
+
+  mat-icon {
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
 mat-sidenav-container {
   mat-toolbar {
 
@@ -11,6 +24,50 @@ mat-sidenav-container {
       margin: 0 10px 0 0;
     }
 
-    
+    .branding {
+      mat-icon {
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+    }
   }
+}
+
+/*
+ * Actual Sticky Footer Styles
+ */
+
+.all-wrap {
+  min-height: 100vh; // same height as browser window height
+}
+
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // same height as browser window height
+}
+
+.content {
+  flex: 1; // child will set to an equal size inside the container
+}
+
+
+/*
+ * Make the component injected by <router-outlet> full height:
+ */
+
+main {
+
+  display: flex;
+  flex-direction: column;
+
+  // Select all direct descendants only of the <main> element
+  // that are not <router-outlet> elements:
+  > *:not(router-outlet) {
+
+    flex: 1; // child will set to an equal size inside the container
+    display: block;
+
+  }
+
 }

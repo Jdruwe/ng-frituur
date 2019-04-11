@@ -17,8 +17,15 @@
       .link {
         color: mat-color($primary, default-contrast);
       }
+
+      .branding {
+        mat-icon {
+          color: white;
+        }
+      }
     }
 
+    //TODO: do we still need this?
     mat-sidenav {
       .mat-list-item {
         &.active {
@@ -32,6 +39,7 @@
       }
     }
 
+    //TODO: do we still need this?
     .footer {
       color: mat-color($primary, lighter);
       background-color: mat-color($primary, darker);
@@ -40,31 +48,12 @@
       .signature {
         a {
           color: mat-color($primary, lighter);
+
           &:hover {
             color: mat-color($accent);
           }
         }
       }
     }
-  }
-
-  .error-notification-overlay {
-    color: mat-color($warn, default-contrast);
-    background-color: mat-color($warn);
-  }
-
-  .info-notification-overlay {
-    color: mat-color($accent, default-contrast);
-    background-color: mat-color($accent);
-  }
-
-  .success-notification-overlay {
-    color: mat-color($success-colors, default-contrast);
-    background-color: mat-color($success-colors);
-  }
-
-  .warning-notification-overlay {
-    color: mat-color($warning-colors, default-contrast);
-    background-color: mat-color($warning-colors);
   }
 }
