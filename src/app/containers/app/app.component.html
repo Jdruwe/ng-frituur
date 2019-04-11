@@ -1,13 +1,3 @@
-<!--<div style="text-align:center">-->
-<!--  <h1>-->
-<!--    Welcome to {{ title }}!-->
-<!--  </h1>-->
-<!--</div>-->
-
-<!--<button mat-button color="primary">Primary</button>-->
-
-<!--<router-outlet></router-outlet>-->
-
 <mat-sidenav-container class="all-wrap">
   <mat-sidenav #sidenav mode="push">
     <mat-icon>fastfood</mat-icon>
@@ -54,10 +44,12 @@
     </mat-toolbar>
 
     <main class="content">
+      <!--TODO: use .container to center the content?-->
       <router-outlet></router-outlet>
     </main>
 
     <footer>
+      <!--TODO: fix footer content-->
       <h2>Sticky Footer !!</h2>
       <p>... with variable height</p>
     </footer>
