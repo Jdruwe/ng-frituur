@@ -6,9 +6,6 @@
          routerLinkActive="active">
         {{item.label}}
       </a>
-      <a mat-list-item href="https://github.com/tomastrajan/angular-ngrx-material-starter" target="_blank">
-        Github
-      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="page-wrap">
@@ -44,14 +41,19 @@
     </mat-toolbar>
 
     <main class="content">
-      <!--TODO: use .container to center the content?-->
-      <router-outlet></router-outlet>
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
     </main>
 
     <footer>
-      <!--TODO: fix footer content-->
-      <h2>Sticky Footer !!</h2>
-      <p>... with variable height</p>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            © 2019 - Jeroen Druw&eacute;
+          </div>
+        </div>
+      </div>
     </footer>
 
   </mat-sidenav-content>

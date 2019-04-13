@@ -49,6 +49,7 @@ mat-sidenav-container {
 
 .content {
   flex: 1; // child will set to an equal size inside the container
+  padding: 20px 0;
 }
 
 
@@ -70,4 +71,9 @@ main {
 
   }
 
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
 }
