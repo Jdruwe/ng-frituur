@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "ng-frituur"
+  "defaultProject": "ng-frituur",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }

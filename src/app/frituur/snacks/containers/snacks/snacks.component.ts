@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Snack, SnacksQuery, SnacksService} from '../../state';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-snacks',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./snacks.component.sass']
 })
 export class SnacksComponent implements OnInit {
+  snacks$: Observable<Snack[]>;
 
-  constructor() { }
+  constructor(private snacksQuery: SnacksQuery,
+              private snacksService: SnacksService) {
+  }
 
   ngOnInit() {
+    this.snacks$ = this.snacksQuery.selectSnacks();
+    this.snacksService.getSnacks();
   }
 
 }

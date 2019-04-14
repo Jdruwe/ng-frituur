@@ -1,8 +1,8 @@
 <p>
-  snacks works!
+  Snacks:
 </p>
-
-<div *ngIf="true">
-  <button mat-button color="primary">Primary</button>
-</div>
-
+<ul>
+  <li *ngFor="let snack of snacks$ | async">
+    {{snack.name}}
+  </li>
+</ul>

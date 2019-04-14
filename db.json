@@ -1,0 +1,24 @@
+{
+  "snacks": [
+    {
+      "id": 1,
+      "name": "Bitterballen"
+    },
+    {
+      "id": 2,
+      "name": "Kaaskroket"
+    },
+    {
+      "id": 3,
+      "name": "Frikandel"
+    },
+    {
+      "id": 4,
+      "name": "Cheeseburger"
+    },
+    {
+      "id": 5,
+      "name": "Kippets"
+    }
+  ]
+}
