@@ -139,6 +139,6 @@
   },
   "defaultProject": "ng-frituur",
   "cli": {
-    "defaultCollection": "@datorama/akita"
+    "defaultCollection": "@schematics/angular"
   }
 }

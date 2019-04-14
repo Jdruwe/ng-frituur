@@ -11,7 +11,7 @@ export interface SnacksState extends EntityState<Snack> {
 @StoreConfig({
   name: 'snacks',
   cache: {
-    ttl: 3600000
+    ttl: 10000
   }
 })
 export class SnacksStore extends EntityStore<SnacksState, Snack> {
