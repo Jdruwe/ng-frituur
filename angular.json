@@ -10,7 +10,7 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "styleext": "scss"
         }
       },
       "architect": {
@@ -140,5 +140,10 @@
   "defaultProject": "ng-frituur",
   "cli": {
     "defaultCollection": "@schematics/angular"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }

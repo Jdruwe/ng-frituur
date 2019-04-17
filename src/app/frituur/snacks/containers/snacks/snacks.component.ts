@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Snack, SnacksQuery, SnacksService} from '../../state';
-import {Observable} from 'rxjs';
+import {Observable, SubscriptionLike} from 'rxjs';
 
 @Component({
   selector: 'app-snacks',
@@ -9,6 +9,7 @@ import {Observable} from 'rxjs';
 })
 export class SnacksComponent implements OnInit, OnDestroy {
   snacks$: Observable<Snack[]>;
+  subscriptions: SubscriptionLike[] = [];
 
   constructor(private snacksQuery: SnacksQuery,
               private snacksService: SnacksService) {
@@ -16,11 +17,10 @@ export class SnacksComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.snacks$ = this.snacksQuery.selectSnacks();
-    this.snacksService.getSnacks().subscribe();
+    this.subscriptions.push(this.snacksService.getSnacks().subscribe());
   }
 
   ngOnDestroy(): void {
-    console.log('ngOnDestroy called');
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
-
 }

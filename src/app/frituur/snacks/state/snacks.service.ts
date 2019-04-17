@@ -18,7 +18,7 @@ export class SnacksService {
   }
 
   getSnacks(): Observable<Snack[]> {
-    const request$ = this.http.get<Snack[]>('http://localhost:3000/snacks').pipe(
+    const request$ = this.http.get<Snack[]>('http://localhost:4000/snacks').pipe(
       tap(response => console.log('Called snacks endpoint', response)),
       tap(response => this.snacksStore.set(response))
     );

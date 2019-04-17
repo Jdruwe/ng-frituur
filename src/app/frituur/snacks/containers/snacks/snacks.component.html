@@ -1,8 +1,6 @@
-<p>
-  Snacks:
-</p>
-<ul>
-  <li *ngFor="let snack of snacks$ | async">
-    {{snack.name}}
-  </li>
-</ul>
+<h2>Snacks</h2>
+
+<app-snack
+  *ngFor="let snack of snacks$ | async"
+  [snack]="snack">
+</app-snack>
