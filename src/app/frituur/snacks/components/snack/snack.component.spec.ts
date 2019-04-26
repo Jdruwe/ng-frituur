@@ -1,6 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SnackComponent } from './snack.component';
+import {SnackComponent} from './snack.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterTestingModule} from '@angular/router/testing';
+import {SharedModule} from '../../../../shared/shared.module';
 
 describe('SnackComponent', () => {
   let component: SnackComponent;
@@ -8,18 +11,29 @@ describe('SnackComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SnackComponent ]
+      imports: [
+        NoopAnimationsModule,
+        RouterTestingModule,
+        SharedModule
+      ],
+      declarations: [SnackComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SnackComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    component.snack = {
+      id: 1,
+      name: '',
+      description: '',
+      category: 2
+    };
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

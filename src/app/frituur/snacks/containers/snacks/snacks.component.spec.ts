@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SnacksComponent } from './snacks.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterTestingModule} from '@angular/router/testing';
+import {SharedModule} from '../../../../shared/shared.module';
+import {SnacksComponent} from './snacks.component';
+import {SnackComponent} from '../../components/snack/snack.component';
+import {SnacksFilterComponent} from '../../components/snacks-filter/snacks-filter.component';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('SnacksComponent', () => {
   let component: SnacksComponent;
@@ -8,9 +14,15 @@ describe('SnacksComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SnacksComponent ]
+      imports: [
+        NoopAnimationsModule,
+        RouterTestingModule,
+        SharedModule,
+        HttpClientModule
+      ],
+      declarations: [SnacksComponent, SnackComponent, SnacksFilterComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
