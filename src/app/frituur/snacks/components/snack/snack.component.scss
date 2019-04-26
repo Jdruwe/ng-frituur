@@ -1,0 +1,14 @@
+.snack {
+  //  margin: 10px;
+
+  .snack__image {
+    text-align: center;
+    background-color: whitesmoke;
+    margin: 0 -16px 16px -16px;
+
+    img {
+      height: 200px;
+      max-width: 100%;
+    }
+  }
+}

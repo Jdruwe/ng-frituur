@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-label>Categorieën</mat-label>
+  <mat-select (valueChange)="this.categoryChanged($event)">
+    <mat-option [value]="-1">Alles</mat-option>
+    <mat-option *ngFor="let category of categories" [value]="category.id">
+      {{category.name | titlecase}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

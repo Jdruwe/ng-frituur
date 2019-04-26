@@ -2,23 +2,97 @@
   "snacks": [
     {
       "id": 1,
-      "name": "Bitterballen"
+      "name": "bamischijf",
+      "description": "Deze Aziatisch gekruide bamischijf is op smaak gebracht met kleine stukjes ui en prei, heerlijke kruiden en een klein beetje ketjap.",
+      "category": 1
     },
     {
       "id": 2,
-      "name": "Kaaskroket"
+      "name": "bitterballen",
+      "description": "Knapperig krokante bitterballen met een vulling van smeuige ragout en mals rundvlees.",
+      "category": 2
     },
     {
       "id": 3,
-      "name": "Frikandel"
+      "name": "crispy-chicken-tender-strips",
+      "description": "Heerlijk van smaak met 100% Beter Welzijn kipfilet. Mals vanbinnen en omhuld met een knapperig korstje.",
+      "category": 3
     },
     {
       "id": 4,
-      "name": "Cheeseburger"
+      "name": "fishfingers",
+      "description": "Heerlijk malse vis in een krokant korstje. Wordt mooi gepresenteerd in een originele Mora pocket.",
+      "category": 4
     },
     {
       "id": 5,
-      "name": "Kippets"
+      "name": "frikandel",
+      "description": "Heerlijk gekruide vleesfrikandel, voorgegaard.",
+      "category": 2
+    },
+    {
+      "id": 6,
+      "name": "garnaalkroket",
+      "description": "Rijkelijk gevulde, smeuïge garnaalkroket gevuld met grijze garnalen uit de Noordzee.",
+      "category": 4
+    },
+    {
+      "id": 7,
+      "name": "chili-cheese-nuggets",
+      "description": "Heerlijke smeltkaas met stukjes mild-pittige jalapeño pepers omhuld door een krokant jasje.",
+      "category": 5
+    },
+    {
+      "id": 8,
+      "name": "kipburger",
+      "description": "Heerlijk malse kip in een knapperige, kruidige paneerlaag. Ideaal voor gebruik tussen een broodje.",
+      "category": 3
+    },
+    {
+      "id": 9,
+      "name": "kippets",
+      "description": "Gepaneerde kipsnack, voorgefrituurd, en verpakt in een golfkartonnen doos. Elke doos bevat ook 20 originele en herkenbare pockets (Amerikaanse vlag).",
+      "category": 3
+    },
+    {
+      "id": 10,
+      "name": "loempia",
+      "description": "Een goudgeel flensje met volop stukjes kippenvlees, ham, taugé en andere verse groenten.",
+      "category": 1
+    },
+    {
+      "id": 11,
+      "name": "spicy-stick",
+      "description": "Stick met heerlijke schijfjes gehakt afgewisseld met zoete ui, dit alles omhuld door een pittig oranjerood korstje.",
+      "category": 2
+    },
+    {
+      "id": 12,
+      "name": "stache",
+      "description": "Kip met pit in een krokant korstje op een stokje!",
+      "category": 3
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "oosters"
+    },
+    {
+      "id": 2,
+      "name": "vlees"
+    },
+    {
+      "id": 3,
+      "name": "kip"
+    },
+    {
+      "id": 4,
+      "name": "vis"
+    },
+    {
+      "id": 5,
+      "name": "kaas"
     }
   ]
 }

@@ -1,26 +1,38 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Snack, SnacksQuery, SnacksService} from '../../state';
 import {Observable, SubscriptionLike} from 'rxjs';
+import * as fromState from '../../state';
 
 @Component({
   selector: 'app-snacks',
   templateUrl: './snacks.component.html',
-  styleUrls: ['./snacks.component.sass']
+  styleUrls: ['./snacks.component.scss']
 })
 export class SnacksComponent implements OnInit, OnDestroy {
-  snacks$: Observable<Snack[]>;
+  snacks$: Observable<fromState.Snack[]>;
+  categories$: Observable<fromState.Category[]>;
   subscriptions: SubscriptionLike[] = [];
 
-  constructor(private snacksQuery: SnacksQuery,
-              private snacksService: SnacksService) {
+  constructor(private snacksQuery: fromState.SnacksQuery,
+              private snacksService: fromState.SnacksService) {
   }
 
   ngOnInit() {
-    this.snacks$ = this.snacksQuery.selectSnacks();
+    this.snacks$ = this.snacksQuery.selectVisibleSnacks$;
+    this.categories$ = this.snacksQuery.selectCategories();
+    this.startDataFlow();
+  }
+
+  private startDataFlow(): void {
+    this.subscriptions.push(this.snacksService.getCategories().subscribe());
     this.subscriptions.push(this.snacksService.getSnacks().subscribe());
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
+
+  categoryChanged(category: fromState.Category): void {
+    console.log('>>> categoryChanged called', category);
+    this.snacksService.updateSelectedCategory(category);
   }
 }

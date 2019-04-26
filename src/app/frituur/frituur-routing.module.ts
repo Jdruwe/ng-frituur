@@ -5,10 +5,6 @@ const routes: Routes = [
   {
     path: 'snacks',
     loadChildren: './snacks/snacks.module#SnacksModule'
-  },
-  {
-    path: 'orders',
-    loadChildren: './orders/orders.module#OrdersModule'
   }
 ];
 

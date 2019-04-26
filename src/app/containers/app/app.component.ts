@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   navigationItems = [
-    { link: 'snacks', label: 'Snacks' },
-    { link: 'orders', label: 'Orders' },
-    { link: 'about', label: 'About' },
+    {
+      link: 'snacks', label: 'Snacks'
+    }
   ];
 }

@@ -5,10 +5,9 @@ import {SnacksRoutingModule} from './snacks-routing.module';
 
 import * as fromContainers from './containers';
 import * as fromComponents from './components';
-import { SnackComponent } from './components/snack/snack.component';
 
 @NgModule({
-  declarations: [fromContainers.containers, fromComponents.components, SnackComponent],
+  declarations: [...fromContainers.containers, ...fromComponents.components],
   imports: [
     SharedModule,
     SnacksRoutingModule

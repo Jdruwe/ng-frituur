@@ -1,3 +1,13 @@
-<p>
-  {{snack.name}}
-</p>
+<mat-card class="snack" fxFlex>
+  <mat-card-header>
+    <mat-card-title>{{snack.name | replace:'-':' ' | titlecase}}</mat-card-title>
+  </mat-card-header>
+  <div class="snack__image">
+    <img src="assets/images/snacks/{{snack.name}}.png" alt="{{snack.name}}">
+  </div>
+  <mat-card-content>
+    <p>
+      {{snack.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
