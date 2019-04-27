@@ -32,7 +32,6 @@ export class SnacksComponent implements OnInit, OnDestroy {
   }
 
   categoryChanged(category: fromState.Category): void {
-    console.log('>>> categoryChanged called', category);
     this.snacksService.updateSelectedCategory(category);
   }
 }
