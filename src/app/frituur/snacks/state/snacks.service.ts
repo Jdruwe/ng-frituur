@@ -23,7 +23,7 @@ export class SnacksService {
   }
 
   getSnacks(): Observable<Snack[]> {
-    const request$ = this.http.get<Snack[]>(`${server}/snacks`).pipe(
+    const request$ = this.call<Snack[]>('snacks').pipe(
       tap(response => this.snacksStore.set(response))
     );
 
@@ -31,13 +31,17 @@ export class SnacksService {
   }
 
   getCategories(): Observable<Category[]> {
-    const request$ = this.http.get<Category[]>(`${server}/categories`).pipe(
+    const request$ = this.call<Category[]>('categories').pipe(
       tap(response => this.snacksStore.update({
         categories: response
       }))
     );
 
     return this.snacksQuery.getHasCache() ? of() : request$;
+  }
+
+  call<T>(url: string): Observable<T> {
+    return this.http.get<T>(`${server}/${url}`);
   }
 
   updateSelectedCategory(category: Category) {
