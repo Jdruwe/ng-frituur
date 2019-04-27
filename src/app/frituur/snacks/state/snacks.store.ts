@@ -23,9 +23,7 @@ const initialState: Partial<SnacksState> = {
   name: 'snacks'
 })
 export class SnacksStore extends EntityStore<SnacksState, Snack> {
-
   constructor() {
     super(initialState);
   }
-
 }
