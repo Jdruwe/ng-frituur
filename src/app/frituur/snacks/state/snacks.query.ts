@@ -12,23 +12,23 @@ import {map} from 'rxjs/operators';
 })
 export class SnacksQuery extends QueryEntity<SnacksState, Snack> {
 
+  private selectedCategory$ = this.select(state => state.ui.selectedCategory);
+
   constructor(protected store: SnacksStore) {
     super(store);
   }
 
-  private selectedCategory$ = this.select(state => state.ui.selectedCategory);
-
-  selectVisibleSnacks$ = this.getData().pipe(
+  selectVisibleSnacks$ = this.selectSnackWithCategories().pipe(
     map(([category, snacks]) => {
       return this.getVisibleSnacks(category, snacks);
     })
   );
 
-  private static snackFilterSet(category: Category): boolean {
-    return category != null;
+  selectCategories(): Observable<Category[]> {
+    return this.select(state => state.categories);
   }
 
-  private getData(): Observable<[Category, Snack[]]> {
+  private selectSnackWithCategories(): Observable<[Category, Snack[]]> {
     return combineLatest(
       this.selectedCategory$,
       this.selectAll(),
@@ -36,14 +36,10 @@ export class SnacksQuery extends QueryEntity<SnacksState, Snack> {
   }
 
   private getVisibleSnacks(category: Category, snacks: Snack[]): Snack[] {
-    if (SnacksQuery.snackFilterSet(category)) {
+    if (category != null) {
       return snacks.filter(s => s.category === category.id);
     } else {
       return snacks;
     }
-  }
-
-  selectCategories(): Observable<Category[]> {
-    return this.select(state => state.categories);
   }
 }

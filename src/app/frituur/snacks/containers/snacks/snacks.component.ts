@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Observable, SubscriptionLike} from 'rxjs';
+import {forkJoin, Observable, SubscriptionLike} from 'rxjs';
 import * as fromState from '../../state';
 
 @Component({
@@ -7,10 +7,10 @@ import * as fromState from '../../state';
   templateUrl: './snacks.component.html',
   styleUrls: ['./snacks.component.scss']
 })
-export class SnacksComponent implements OnInit, OnDestroy {
+export class SnacksComponent implements OnInit {
+
   snacks$: Observable<fromState.Snack[]>;
   categories$: Observable<fromState.Category[]>;
-  subscriptions: SubscriptionLike[] = [];
 
   constructor(private snacksQuery: fromState.SnacksQuery,
               private snacksService: fromState.SnacksService) {
@@ -23,12 +23,7 @@ export class SnacksComponent implements OnInit, OnDestroy {
   }
 
   private startDataFlow(): void {
-    this.subscriptions.push(this.snacksService.getCategories().subscribe());
-    this.subscriptions.push(this.snacksService.getSnacks().subscribe());
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+    this.snacksService.getData().subscribe();
   }
 
   categoryChanged(category: fromState.Category): void {
