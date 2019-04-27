@@ -39,11 +39,10 @@ describe('SnacksService', () => {
         category: 2
       }
     ];
-    spyOn(snacksService, 'call').and.returnValue(of(mockSnacks));
+    spyOn<any>(snacksService, 'call').and.returnValue(of(mockSnacks));
     spyOn(snacksStore, 'set').and.callThrough();
-    const subscription = snacksService.getSnacks().subscribe();
+    snacksService.getData().subscribe();
     expect(snacksStore.set).toHaveBeenCalledWith(mockSnacks);
-    subscription.unsubscribe();
   });
 
   it('should set categories.', () => {
@@ -57,12 +56,11 @@ describe('SnacksService', () => {
         name: 'vlees'
       }
     ];
-    spyOn(snacksService, 'call').and.returnValue(of(mockCategories));
+    spyOn<any>(snacksService, 'call').and.returnValue(of(mockCategories));
     spyOn(snacksStore, 'update').and.callThrough();
-    const subscription = snacksService.getCategories().subscribe();
+    snacksService.getData().subscribe();
     expect(snacksStore.update).toHaveBeenCalledWith({
       categories: mockCategories
     });
-    subscription.unsubscribe();
   });
 });

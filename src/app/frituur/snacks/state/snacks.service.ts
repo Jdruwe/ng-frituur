@@ -22,6 +22,14 @@ export class SnacksService {
               private snacksQuery: SnacksQuery) {
   }
 
+  updateSelectedCategory(category: Category) {
+    this.snacksStore.update({
+      ui: {
+        selectedCategory: category
+      }
+    });
+  }
+
   getData() {
     const snacksAndCategories$ = forkJoin([
         this.getSnacks(),
@@ -32,27 +40,19 @@ export class SnacksService {
     return this.snacksQuery.getHasCache() ? EMPTY : snacksAndCategories$;
   }
 
-  getSnacks(): Observable<Snack[]> {
+  private getSnacks(): Observable<Snack[]> {
     return this.call<Snack[]>('snacks').pipe(
       tap(response => this.snacksStore.set(response))
     );
   }
 
-  getCategories(): Observable<Category[]> {
+  private getCategories(): Observable<Category[]> {
     return this.call<Category[]>('categories').pipe(
       tap(categories => this.snacksStore.update({categories}))
     );
   }
 
-  call<T>(url: string): Observable<T> {
+  private call<T>(url: string): Observable<T> {
     return this.http.get<T>(`${server}/${url}`);
-  }
-
-  updateSelectedCategory(category: Category) {
-    this.snacksStore.update({
-      ui: {
-        selectedCategory: category
-      }
-    });
   }
 }
