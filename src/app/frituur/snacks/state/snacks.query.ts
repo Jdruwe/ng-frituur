@@ -18,7 +18,7 @@ export class SnacksQuery extends QueryEntity<SnacksState, Snack> {
   }
 
   static filterBy(category) {
-    return function(snack) {
+    return (snack) => {
       if (category) {
         return snack.category === category.id;
       }

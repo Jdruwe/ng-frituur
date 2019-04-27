@@ -9,6 +9,7 @@ import * as fromState from '../../state';
 })
 export class SnacksComponent implements OnInit {
 
+  loading$: Observable<boolean>;
   snacks$: Observable<fromState.Snack[]>;
   categories$: Observable<fromState.Category[]>;
 
@@ -17,6 +18,7 @@ export class SnacksComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading$ = this.snacksQuery.selectLoading();
     this.snacks$ = this.snacksQuery.selectVisibleSnacks();
     this.categories$ = this.snacksQuery.selectCategories$;
     this.startDataFlow();

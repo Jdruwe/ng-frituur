@@ -7,6 +7,7 @@ import {
   MatCardModule,
   MatIconModule,
   MatListModule,
+  MatProgressSpinnerModule,
   MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
@@ -27,6 +28,7 @@ import * as fromPipes from './pipes';
     MatIconModule,
     MatCardModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
     ...fromPipes.pipes
   ]
 })

@@ -3,16 +3,23 @@
   (categoryChange)="categoryChanged($event)">
 </app-snacks-filter>
 
-<div
-  class="snacks"
-  fxLayout="row wrap"
-  fxLayout.xs="column"
-  fxLayoutGap="20px grid">
-  <app-snack
-    fxFlex.gt-xs="50"
-    fxFlex.gt-sm="33"
-    *ngFor="let snack of snacks$ | async"
-    [snack]="snack">
-  </app-snack>
-</div>
+<ng-container *ngIf="!(loading$ | async); else loadingTpl">
+  <div
+    class="snacks"
+    fxLayout="row wrap"
+    fxLayout.xs="column"
+    fxLayoutGap="20px grid">
+    <app-snack
+      fxFlex.gt-xs="50"
+      fxFlex.gt-sm="33"
+      *ngFor="let snack of snacks$ | async"
+      [snack]="snack">
+    </app-snack>
+  </div>
+</ng-container>
 
+<ng-template #loadingTpl>
+  <div class="progress">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
