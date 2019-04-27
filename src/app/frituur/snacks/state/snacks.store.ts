@@ -20,10 +20,7 @@ const initialState: Partial<SnacksState> = {
   providedIn: 'root'
 })
 @StoreConfig({
-  name: 'snacks',
-  cache: {
-    ttl: 10000
-  }
+  name: 'snacks'
 })
 export class SnacksStore extends EntityStore<SnacksState, Snack> {
 
