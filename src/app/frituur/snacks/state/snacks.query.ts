@@ -16,7 +16,7 @@ export class SnacksQuery extends QueryEntity<SnacksState, Snack> {
     super(store);
   }
 
-  selectedCategory$ = this.select(state => state.ui.selectedCategory);
+  private selectedCategory$ = this.select(state => state.ui.selectedCategory);
 
   selectVisibleSnacks$ = this.getData().pipe(
     map(([category, snacks]) => {
