@@ -24,8 +24,8 @@ export class SnacksService {
 
   getData() {
     const snacksAndCategories$ = forkJoin([
-        this.getSnacks,
-        this.getCategories
+        this.getSnacks(),
+        this.getCategories()
       ]
     );
 

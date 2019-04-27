@@ -1,5 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {forkJoin, Observable, SubscriptionLike} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 import * as fromState from '../../state';
 
 @Component({
@@ -17,8 +17,8 @@ export class SnacksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.snacks$ = this.snacksQuery.selectVisibleSnacks$;
-    this.categories$ = this.snacksQuery.selectCategories();
+    this.snacks$ = this.snacksQuery.selectVisibleSnacks();
+    this.categories$ = this.snacksQuery.selectCategories$;
     this.startDataFlow();
   }
 
